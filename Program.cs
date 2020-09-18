@@ -11,10 +11,10 @@ namespace UltimateFlowerGirl
         static void Main(string[] args)
         {
             FlowerGirl isobel = new FlowerGirl
-                ("Isobel", 1200, 110, 50); //JC note: name, number of flowers she is holding, attack power, blocking power
+                ("Isobel", 150, 70, 5); //NAME, FLOWERS, ATTACK power, BLOCK power
 
             FlowerGirl persephone = new FlowerGirl
-                ("Persephone", 1200, 110, 50);
+                ("Persephone", 150, 70, 5);
 
             Battle.StartFlowerFight(isobel, persephone);
 

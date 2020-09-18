@@ -6,50 +6,41 @@ using System.Threading.Tasks;
 
 namespace UltimateFlowerGirl
 {
-    class FlowerGirl
+    class FlowerGirl //THIS IS THE REPO
     {
-        // Name Flowers Attack Maximum Block Maximum
-        // JC notes: the following are attributes Name/Flowers/AttkMax/BlockMax
+        // Name Flowers Attack Maximum Block Maximum        
         public string Name { get; set; } =
-            "FlowerGirl";
-                                        //default value
-        public double Flowers { get; set; } = 0;
-        public double AttkMax { get; set; } = 0;
-        public double BlockMax { get; set; } = 0;
-
-        // Random numbers
-        // JC note: create a single random instance and reuse it over again
+            "FlowerGirl";        
+        public int Flowers { get; set; }
+        public int AttkMax { get; set; }
+        public int BlockMax { get; set; }
+                
+        // Note: create a single random instance and reuse it over again,
         //  otherwise you will get the same random number over again
         Random rnd = new Random();
 
-        //JC note: constructor to initialize everything
-        public FlowerGirl(string name = "FlowerGirl",
-            double flowers = 0,
-            double attMax = 0,
-            double blockMax = 0)
+        // constructor to initialize everything
+        public FlowerGirl(string name, int flowers, int attkMax, int blockMax)
         {
             Name = name;
             Flowers = flowers;
-            AttkMax = attMax;
+            AttkMax = attkMax;
             BlockMax = blockMax;
         }
-
-        // Attack
-        // Generate random attack from 1 to max attack
-        // JC note: this is a method
-        public double Attack()
+                
+        // ATTACK method: Generate random attack from 1 to max attack        
+        public int Attack()
         {
-                                //converting double to integer
-            return rnd.Next(1, (int)AttkMax);
+                                //converting int to integer
+            return rnd.Next(1,AttkMax);
         }
-
-        // Block
-        // Generate random block from 1 to max block
-        // JC note: this is a method
-        public double Block()
+                
+        // BLOCK method: Generate random block from 1 to max block        
+        public int Block()
         {
-                                //converting double to integer
-            return rnd.Next(1, (int)BlockMax);
+            /*OLD code: converting int to integer
+            return rnd.Next(1, (int)BlockMax);*/
+            return rnd.Next(1,BlockMax);
         }
 
     }
