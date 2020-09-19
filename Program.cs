@@ -10,13 +10,13 @@ namespace UltimateFlowerGirl
     {
         static void Main(string[] args)
         {
-            FlowerGirl isobel = new FlowerGirl
-                ("Isobel", 150, 70, 5); //NAME, FLOWERS, ATTACK power, BLOCK power
+            FlowerGirl karen = new FlowerGirl
+                ("Karen", 150, 70, 5); //NAME, FLOWERS, ATTACK power, BLOCK power
 
-            FlowerGirl persephone = new FlowerGirl
-                ("Persephone", 150, 70, 5);
+            FlowerGirl claire = new FlowerGirl
+                ("Claire", 150, 70, 5);
 
-            Battle.StartFlowerFight(isobel, persephone);
+            Battle.StartFlowerFight(karen, claire);
 
             Console.ReadLine();
 

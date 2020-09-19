@@ -16,20 +16,30 @@ namespace UltimateFlowerGirl
              * to attack/block each turn until 1 has no more flowers in her hand 
              * 'While' loop that cont. forever until it meets game over and that ends the loop */
 
-            while (true)
+            Console.WriteLine("Welcome to the Bridezilla's ULTIMATE FLOWERGIRL BATTLE!\n" +
+                "\nToday's UFB match is between Clare and Karen\n\n\n" +
+                "LET'S GET REEEEADYYYY TO RUMBLE!!\n" +
+                "(Press any key to start to start...)");
+
+            Console.ReadKey();
+            Console.Clear();
+
+            bool keepAttacking = true;
+
+            while (keepAttacking)
             {
                 // flowergirl1 attacking flowergirl2
                 // if this returns the value of "This Flower Throwdown is OVER!", then break the loop
                 if (GetAttackResult(flowerGirl1, flowerGirl2) == "This Flower Throwdown is OVER!")
                 {
                     Console.WriteLine("This Flower Throwdown is OVER!");
-                    break;
+                    keepAttacking = false;
                 }
                 // flowergirl2 attacking flowergirl1
                 if (GetAttackResult(flowerGirl2, flowerGirl1) == "This Flower Throwdown is OVER!")
                 {
                     Console.WriteLine("This Flower Throwdown is OVER!");
-                    break;
+                    keepAttacking = false;
                 }
             }
         }
@@ -56,67 +66,68 @@ namespace UltimateFlowerGirl
                 // if they are left with a negative number  
                 if (flowerGirlB.Flowers <= 0)
                 {
-                    // this sets it to 0, otherwise it skips this statement and keeps going
+                    //this sets it to 0, otherwise it skips this statement and keeps going
                     flowerGirlB.Flowers = 0;
                 }
             }
             else dmg2FlowB = 0;
 
-            // Print out info on who attacked who and for how much damage
-            /* Note: flowergirl attacks other flowergirl and causes 
-             * damage (damage = loss of flowers that wasn't blocked) */
-            Console.WriteLine("\n\n{0} attacks {1} and knocks {2} flower(s) out of {1} arms!",
+
+            Console.WriteLine("\n\n{0} growls, lunges and hits {1} {2} times!!\n",
                 flowerGirlA.Name,
                 flowerGirlB.Name,
-                  dmg2FlowB); //total damage done
+                  dmg2FlowB); //total damage done                       
+
+            // Print out how much was blocked by the defending flowergirl
+            // OLD Console.WriteLine("{1} manages to block {0}'s attack and saves {2} flower(s)!!",
+            Console.WriteLine("{1} dodges some of {0}'s punches and looks down \n" +
+                "to see how many flowers she's still holding...",
+                flowerGirlA.Name,
+                flowerGirlB.Name);
+            //flowBBlkAmt);
+
+            // Provide output on the change in number of flowers a flowergirl is holding
+            Console.WriteLine("\nAnnnd...{0} is holding {1} flower(s)!!!\n\n",
+                flowerGirlB.Name,
+                flowerGirlB.Flowers);
 
             // ADD Print out a reaction from the wedding guest depending on damage dealt
             if (dmg2FlowB >= 59 || dmg2FlowB == 70)
             {
-                Console.WriteLine("\nThere's an audible gasp from one of the wedding guests..");
+                Console.WriteLine("There's an audible gasp from one of the wedding guests..\n");
             }
             else if (dmg2FlowB >= 49 || dmg2FlowB == 58)
             {
-                Console.WriteLine("\n..the bride faints as the flowers scatter onto the lawn..");
+                Console.WriteLine("..the bride faints as the flowers scatter onto the lawn..\n");
             }
             else if (dmg2FlowB >= 39 || dmg2FlowB == 48)
             {
-                Console.WriteLine("\nOne of the Bridesmaids starts gathering fallen petals.");
+                Console.WriteLine("One of the Bridesmaids starts gathering fallen petals.\n");
             }
             else if (dmg2FlowB >= 29 || dmg2FlowB == 38)
             {
-                Console.WriteLine("\nThe groom's uncle's, cousin's, niece's date starts taking bets..");
+                Console.WriteLine("The groom's uncle's, cousin's, niece's date starts taking bets..\n");
             }
             else if (dmg2FlowB >= 19 || dmg2FlowB == 28)
             {
-                Console.WriteLine("\nThe mother of the bride moans, '...we spent so much money on this!'");
+                Console.WriteLine("The mother of the bride moans, '...we spent so much money on this!'\n");
             }
             else if (dmg2FlowB >= 9 || dmg2FlowB == 18)
             {
-                Console.WriteLine("\nThe groom whispers to his new bride, '..let's get out of here *wink wink*..");
+                Console.WriteLine("The groom whispers to his new bride, '..let's get out of here *wink wink*..\n");
             }
             else if (dmg2FlowB >= 1 || dmg2FlowB == 8)
             {
-                Console.WriteLine("\nOne of the wedding guests holds up a fist full of money and says,\n" +
-                    " '..I got fifty on {0}!!'",
+                Console.WriteLine("One of the wedding guests holds up a fist full of money and says,\n" +
+                    " '..I got fifty on {0}!!'\n",
                         flowerGirlA.Name);
             }
             else
             {
                 return null;
             }
-            Console.ReadKey(); //breaks so that the user can read the story
-
-            // Print out how much was blocked by the defending flowergirl
-            Console.WriteLine("{1} manages to block {0}'s attack and saves {2} flower(s)!!",
-                flowerGirlA.Name,
-                flowerGirlB.Name,
-                    flowBBlkAmt);
-
-            // Provide output on the change in number of flowers a flowergirl is holding
-            Console.WriteLine("\n{0} is holding {1} flower(s)!!!\n\n",
-                flowerGirlB.Name,
-                flowerGirlB.Flowers);
+            Console.ReadKey(); //breaks so that the user can read the story            
+            Console.Clear();
 
             // Check if the number of flowers the flowergirls are holding fell below 0,
             // if so, print a msg and then send a responds that ends the loop
@@ -130,9 +141,9 @@ namespace UltimateFlowerGirl
                      flowerGirlA.Name);
                 return "This Flower Throwdown is OVER!";
             }
-            else //NOTE: NOT SURE IF THIS IS DOING ANYTHING
+            else
             {
-                return "Flower Throwdown Again";
+                return null;
             }
         }
     }

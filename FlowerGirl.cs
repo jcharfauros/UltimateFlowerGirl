@@ -12,7 +12,7 @@ namespace UltimateFlowerGirl
         public string Name { get; set; } =
             "FlowerGirl";        
         public int Flowers { get; set; }
-        public int AttkMax { get; set; }
+        public int AttkMax { get; set; } 
         public int BlockMax { get; set; }
                 
         // Note: create a single random instance and reuse it over again,
@@ -30,8 +30,7 @@ namespace UltimateFlowerGirl
                 
         // ATTACK method: Generate random attack from 1 to max attack        
         public int Attack()
-        {
-                                //converting int to integer
+        {                                
             return rnd.Next(1,AttkMax);
         }
                 
