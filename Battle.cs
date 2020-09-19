@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UltimateFlowerGirl
 {
-    class Battle // THIS IS THE UI JC note: utility class, all methods are going to be static
+    class Battle // THIS IS THE UI: utility class, all methods are going to be static
     {
         // StartFight
         // FlowerGirl1 FlowerGirl2
@@ -105,9 +105,9 @@ namespace UltimateFlowerGirl
             {
                 return null;
             }
-            Console.ReadKey();
+            Console.ReadKey(); //breaks so that the user can read the story
 
-            // ADD Print out how much was blocked by the defending flowergirl
+            // Print out how much was blocked by the defending flowergirl
             Console.WriteLine("{1} manages to block {0}'s attack and saves {2} flower(s)!!",
                 flowerGirlA.Name,
                 flowerGirlB.Name,
@@ -125,8 +125,7 @@ namespace UltimateFlowerGirl
                 Console.WriteLine("\n{0} has lost all her flowers! " +
                     "{1} is the ULTIMATE FLOWER GIRL!!!\n" +
                     "THE GUESTS GO WILD!!\n" +
-                    "Tears runs down {0}'s face as she watches \n" +
-                    "{1} do a victory dance.\n",
+                    "{0} is bawls as she watches {1} do a victory dance.\n",
                      flowerGirlB.Name,
                      flowerGirlA.Name);
                 return "This Flower Throwdown is OVER!";
